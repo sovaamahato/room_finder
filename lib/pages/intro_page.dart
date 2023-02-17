@@ -40,8 +40,22 @@ class _IntroPageState extends State<IntroPage> {
     );
     return IntroductionScreen(
       key: introKey,
+      allowImplicitScrolling: true,
+      globalFooter: SizedBox(
+        width: double.infinity,
+        height: 60,
+        child: ElevatedButton(
+          child: const Text(
+            'Let\'s go right away!',
+            style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
+          ),
+          onPressed: () => _onIntroEnd(context),
+        ),
+      ),
+      
       pages: [
         
+
                 PageViewModel(
                   title: "Search Rooms",
                   body: "Find Best Rooms Of Your",
