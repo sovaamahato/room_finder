@@ -1,5 +1,7 @@
 import 'package:find_rooms_app/components/stacks_box.dart';
 import 'package:flutter/material.dart';
+import '../components/available_rooms.dart';
+// import 'room_detail_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -46,9 +48,17 @@ class _HomePageState extends State<HomePage> {
          Container(
           height: MediaQuery.of(context).size.height,
            child: ListView.builder(
-            itemCount: 4,
+            itemCount: AvailableRooms.length,
             itemBuilder:(BuildContext context, int index) {
-              return StackBox();
+              return StackBox(
+                price: AvailableRooms[index][0],
+                room_type: AvailableRooms[index][1],
+                floor: AvailableRooms[index][2],
+                parking: AvailableRooms[index][3],
+                water: AvailableRooms[index][4],
+                img_path: AvailableRooms[index][5],
+              
+              );
               }
                   ),
          ),
