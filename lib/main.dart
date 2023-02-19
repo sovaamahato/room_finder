@@ -1,3 +1,4 @@
+import 'package:find_rooms_app/pages/home.dart';
 import 'package:flutter/material.dart';
 
 import 'pages/home_page.dart';
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: Colors.purple),
-      home:HomePage() ,
+      home:Home() ,
     );
     
   }

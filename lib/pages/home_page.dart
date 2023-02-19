@@ -11,6 +11,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
+ 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,22 +24,7 @@ class _HomePageState extends State<HomePage> {
           elevation: 0,
           actions: [IconButton(onPressed: () {}, icon: Icon(Icons.search))]),
       //bottomnavigation bar
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: 'search',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.notifications),
-            label: 'Notifications',
-          ),
-        ],
-      ),
+      
       body: SingleChildScrollView(
           child: Column(
         children: [
