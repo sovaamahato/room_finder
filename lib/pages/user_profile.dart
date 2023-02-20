@@ -1,18 +1,28 @@
 import 'package:find_rooms_app/components/card_tile.dart';
+import 'package:find_rooms_app/pages/manage_listing_page.dart';
+import 'package:find_rooms_app/pages/settings_page.dart';
 import 'package:flutter/material.dart';
 
-class UserProfilePage extends StatelessWidget {
-  // String name;
-  // String email;
-  // UserProfilePage({required this.name,required this.email});
+import 'add_room_page.dart';
 
+
+
+class UserProfilePage extends StatefulWidget {
+  @override
+  State<UserProfilePage> createState() => _UserProfilePageState();
+}
+
+class _UserProfilePageState extends State<UserProfilePage> {
+  // String name;
+
+ 
   List itemList=[
-    [Icons.add,"Add New Room"],
-    [Icons.account_box,"Manage Listing"],
-    [Icons.send,"Invite Friends"],
-    [Icons.settings,"settings"],
-    [Icons.question_mark_rounded,"Help"],
-    [Icons.phone,"Contact"]
+    [Icons.add,"Add New Room",AddRoomPage(),],
+    [Icons.account_box,"Manage Listing",ManageListing()],
+    [Icons.send,"Invite Friends",Text("")],
+    [Icons.settings,"settings",SettingPage()],
+    [Icons.question_mark_rounded,"Help",Text("")],
+    [Icons.phone,"Contact",Text("")]
 
   ];
 
@@ -61,7 +71,13 @@ class UserProfilePage extends StatelessWidget {
               child: ListView.builder(
             itemCount: itemList.length,
             itemBuilder:(BuildContext context, int index) {
-              return CardTile(iconLeading:itemList[index][0] , titleText: itemList[index][1]);
+              return CardTile(iconLeading:itemList[index][0] , titleText: itemList[index][1],onTap: (){
+                setState(() {
+                  index==2||index==4||index==5?itemList[index][2]:
+                  Navigator.push(context, MaterialPageRoute(builder: (_) =>itemList[index][2]),);
+
+                });
+              },);
               }
                   ),
             )
