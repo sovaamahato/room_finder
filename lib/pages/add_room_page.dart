@@ -19,40 +19,50 @@ class _AddRoomPageState extends State<AddRoomPage> {
   List<Widget> tabOpts=[
   
 
-  Text("Space",style: TextStyle(color: Colors.black),),
-  Text("Room Photos",style: TextStyle(color: Colors.black)),
-  Text("Description",style: TextStyle(color: Colors.black)),
-  Text("preview Listing",style: TextStyle(color: Colors.black)),
-  Text("Publish Room",style: TextStyle(color: Colors.black)),
+  Padding(
+    padding: const EdgeInsets.all(9.0),
+    child: Text("Space",style: TextStyle(color: Colors.white),),
+  ),
+  Text("Room Photos",style: TextStyle(color: Colors.white)),
+  Text("Description",style: TextStyle(color: Colors.white)),
+  Text("preview Listing",style: TextStyle(color: Colors.white)),
+  Text("Publish Room",style: TextStyle(color: Colors.white)),
   
  ];
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text("Add Rooms")),
-      body: DefaultTabController(
+    return DefaultTabController(
         length:tabOpts.length,
-        child: Column(
-          children: [
-            TabBar(tabs: tabOpts),
-            Expanded(
-                child: TabBarView(children: [
-                  //donut
-                  SpaceTab(),
-                  //pancake
-                  RoomPicTab(),
+        child:Scaffold(
+      appBar: AppBar(title: Text("Add Rooms"),
+      bottom: TabBar(
+        
+            
+              labelColor: Colors.purple,
+
+              isScrollable: true,
+              tabs: tabOpts),
+      ),
+      
+      body: 
+        
+          
+            
+            TabBarView(children: [
+              //donut
+              SpaceTab(),
+              //pancake
+              RoomPicTab(),
               
-                  //Burger
-                  DescriptionTab(),
-                  //Icecream
-                  PreviewTab(),
-                  //pizza 
-                  PublishTab()
+              //Burger
+              DescriptionTab(),
+              //Icecream
+              PreviewTab(),
+              //pizza 
+              PublishTab()
               
-                ]),
-              )
-          ],
-        ),
+            ])
+          
       )
     );
   }
