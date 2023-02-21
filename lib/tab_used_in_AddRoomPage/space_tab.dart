@@ -1,8 +1,27 @@
 import 'package:flutter/material.dart';
 
-class SpaceTab extends StatelessWidget {
+const List<Widget> icons = <Widget>[
+  Padding(
+    padding: EdgeInsets.all(10.0),
+    child: Icon(Icons.sunny,size: 45,),
+  ),
+  Padding(
+    padding: EdgeInsets.all(10.0),
+    child: Icon(Icons.cloud,size: 45,),
+  ),
+  
+];
+
+class SpaceTab extends StatefulWidget {
   
 
+  @override
+  State<SpaceTab> createState() => _SpaceTabState();
+}
+
+class _SpaceTabState extends State<SpaceTab> {
+
+  final List<bool> _selectedWeather = <bool>[true, false];
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -40,8 +59,30 @@ class SpaceTab extends StatelessWidget {
         autovalidateMode: AutovalidateMode.always,
           ),
           SizedBox(height: 8,),
-         Text ("Listing Type",style: TextStyle(fontWeight: FontWeight.bold),)
+         Text ("Listing Type",style: TextStyle(fontWeight: FontWeight.bold),),
+         SizedBox(height: 10,),
 //duita option bata euta select garna milne banauna bakiiiiiiii----------------------
+
+
+        ToggleButtons(
+          
+                direction:  Axis.horizontal,
+                onPressed: (int index) {
+                  setState(() {
+                    // The button that is tapped is set to true, and the others to false.
+                    for (int i = 0; i < _selectedWeather.length; i++) {
+                      _selectedWeather[i] = i == index;
+                    }
+                  });
+                },
+                borderRadius: const BorderRadius.all(Radius.circular(8)),
+                selectedBorderColor: Colors.purple[700],
+                selectedColor: Colors.white,
+                fillColor: Colors.purple[200],
+                color: Colors.purple[400],
+                isSelected: _selectedWeather,
+                children: icons,
+              ),
 
 //dropdown and select 6ota 
 //parking choice
