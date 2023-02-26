@@ -38,12 +38,19 @@ class _HomePageState extends State<HomePage> {
             itemCount: AvailableRooms.length,
             itemBuilder:(BuildContext context, int index) {
               return StackBox(
-                price: AvailableRooms[index][0],
-                room_type: AvailableRooms[index][1],
-                floor: AvailableRooms[index][2],
-                parking: AvailableRooms[index][3],
-                water: AvailableRooms[index][4],
-                img_path: AvailableRooms[index][5],
+                no_of_bedroom: AvailableRooms[index][0]?? '',
+                price: AvailableRooms[index][1]?? '',
+                room_type: AvailableRooms[index][2]?? '',
+                floor: AvailableRooms[index][3]?? '',
+                parking: AvailableRooms[index][4]?? '',
+                water: AvailableRooms[index][5]?? '',
+                img_path: AvailableRooms[index][6]?? '',
+                place: AvailableRooms[index][7]?? '',
+                kitchen: AvailableRooms[index][8]?? '',
+                 bathroom: AvailableRooms[index][9]?? '', 
+                 
+                 phone: AvailableRooms[index][10]?? '',
+
               
               );
               }

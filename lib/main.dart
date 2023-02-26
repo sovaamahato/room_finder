@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'pages/home_page.dart';
 import 'pages/intro_page.dart';
+import 'pages/room_detail_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,6 +18,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: Colors.purple),
       home:Home() ,
+      routes: {
+        RoomDetailsPage.routeName:(context) => RoomDetailsPage()
+      },
     );
     
   }

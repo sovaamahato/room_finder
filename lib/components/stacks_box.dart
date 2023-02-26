@@ -3,28 +3,59 @@ import '../pages/room_detail_page.dart';
 import 'available_rooms.dart';
 
 class StackBox extends StatelessWidget {
-  String price;
+ final String no_of_bedroom;
+  final String price;
   String room_type;
   String floor;
   String parking;
   String water;
   final String img_path;
+  String place;
+  String kitchen;
+  String bathroom;
+  String phone;
   StackBox({
+    required this.no_of_bedroom,
     required this.price,
-     required this.room_type, 
-     required this.floor,
-     required this.parking,
-     
-     required this.water,
-     required this.img_path,
-     });
+    required this.room_type,
+    required this.floor,
+    required this.parking,
+    required this.water,
+    required this.img_path,
+    required this.place,
+    required this.kitchen,
+    required this.bathroom,
+    required this.phone
+
+  });
+
+  void _selectRoom(BuildContext ctx) {
+    Map<String, String>? myMap = {'no_of_bedroom': no_of_bedroom, 
+          'place': place,
+          'img_path':img_path,
+          'price':price,
+          'room_type':room_type,
+          'floor':floor,
+          'parking':parking,
+          'water':water,
+          'kitchen':kitchen,
+          'bathroom':bathroom,
+          'phone':phone
+          };
+          
+          if (myMap != null) {
+            Navigator.pushNamed(ctx,RoomDetailsPage.routeName, arguments:myMap
+          );
+
+          } // assume one of the arguments is null
+
+    
+  }
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (_) => RoomDetailsPage()),);
-                },
+      onTap: () => _selectRoom(context),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
         child: Container(
@@ -38,7 +69,8 @@ class StackBox extends StatelessWidget {
                 left: 130,
                 child: Container(
                   decoration: BoxDecoration(
-                      color: Colors.red, borderRadius: BorderRadius.circular(20)),
+                      color: Colors.red,
+                      borderRadius: BorderRadius.circular(20)),
                   width: MediaQuery.of(context).size.width / 1.9,
                   height: 250,
                   child: ClipRRect(
@@ -79,7 +111,7 @@ class StackBox extends StatelessWidget {
                         SizedBox(
                           height: 15,
                         ),
-                        Text('Room Type:\n '+ room_type,
+                        Text('Room Type:\n ' + room_type,
                             style: TextStyle(
                                 fontSize: 15,
                                 color: Colors.black54,
@@ -133,7 +165,7 @@ class StackBox extends StatelessWidget {
                               width: 6,
                             ),
                             Text(
-                              floor,
+                              water,
                               style: TextStyle(color: Colors.grey),
                             )
                           ],
